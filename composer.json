@@ -3,7 +3,7 @@
     "authors": [
         {
             "name": "Sistema ECommerce",
-            "email": "jefferson.bribas@gmail.com"
+            "email": "teste@gmail.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "": "vendor\\hcodebr\\php-classes\\src"
+            "Hcode\\": "vendor\\hcodebr\\php-classes\\src"
         }
     }
 }
