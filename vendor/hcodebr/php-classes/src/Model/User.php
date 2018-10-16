@@ -83,11 +83,15 @@ class User extends Model {
 
 		if (!User::checkLogin($inadmin)) {
 			
-			header("Location: /admin/login");
-		} else {
-			header("Location: /login");
+			
+			if ($inadmin) {
+				header("Location: /admin/login");
+			} else {
+			    header("Location: /login");
+			  }
+			exit;
 		}
-		exit;
+		
 
 	}
 
@@ -113,7 +117,7 @@ class User extends Model {
 			array(
 			":desperson"=>utf8_decode($this->getdesperson()),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
 	        ":desemail"=>$this->getdesemail(),
 			":nrphone"=>$this->getnrphone(),
 			":inadmin"=>$this->getinadmin()
@@ -141,7 +145,7 @@ class User extends Model {
 			":iduser"=>$this->getiduser(),
 			":desperson"=>utf8_decode($this->getdesperson()),
 			":deslogin"=>$this->getdeslogin(),
-			":despassword"=>$this->getdespassword(),
+			":despassword"=>User::getPasswordHash($this->getdespassword()),
 	        ":desemail"=>$this->getdesemail(),
 			":nrphone"=>$this->getnrphone(),
 			":inadmin"=>$this->getinadmin()
